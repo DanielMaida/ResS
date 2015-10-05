@@ -1,4 +1,4 @@
-package user
+package br.ufpe.cin.ines.ress
 
 /**
  * Created by Daniel on 05/09/2015.

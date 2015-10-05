@@ -1,6 +1,4 @@
-package home
-
-import user.User
+package br.ufpe.cin.ines.ress
 
 class HomeController {
 
