@@ -9,7 +9,7 @@ class Address {
     String state
     String cep
 
-   // static belongsTo = [user: User]
+    static belongsTo = [user: User]
 
     static constraints = {
         street nullable: false, blank: false
@@ -17,5 +17,6 @@ class Address {
         city nullable: false, blank: false
         state nullable: false, blank: false
         cep nullable: false, blank: false
+        additionalInfo nullable: true
     }
 }

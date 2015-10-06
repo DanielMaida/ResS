@@ -107,7 +107,8 @@ class LoginController {
 				msg = g.message(code: "springSecurity.errors.login.locked")
 			}
 			else {
-				msg = g.message(code: "springSecurity.errors.login.fail")
+				msg = "Username or Password invalid"
+				//g.message(code: "springSecurity.errors.login.fail")
 			}
 		}
 
