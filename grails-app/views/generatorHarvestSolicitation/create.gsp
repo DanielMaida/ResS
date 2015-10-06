@@ -1,9 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: danie_000
-  Date: 6/24/2015
-  Time: 10:05 PM
---%>
 
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ page import="residueGenerator.HarvestSolicitation" %>

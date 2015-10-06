@@ -9,7 +9,6 @@ class HomeController {
 
     def login()
     {
-        User user = new User();
-        render(view: "login", model: [user : user]);
+        redirect(controller: "login", action: "index")
     }
 }
