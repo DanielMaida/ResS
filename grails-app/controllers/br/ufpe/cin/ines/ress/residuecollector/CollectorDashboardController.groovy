@@ -1,4 +1,4 @@
-package br.ufpe.cin.ines.ress.residuegenerator
+package br.ufpe.cin.ines.ress.residuecollector
 
 class CollectorDashboardController {
 
