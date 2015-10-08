@@ -56,7 +56,9 @@
             <li>
                 <a href="#">Contato</a>
             </li>
-
+            <li>
+                <a href="#">Sair</a>
+            </li>
         </ul>
     </div>
     <!-- /#sidebar-wrapper -->
