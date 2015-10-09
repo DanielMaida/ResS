@@ -25,7 +25,7 @@
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				<li>
-					<g:link  controller="home" action="login">Login</g:link>
+					<g:link controller="home" action="login">Login</g:link>
 				</li>
 				<li>
 					<a href="#services">Sobre</a>

@@ -53,6 +53,9 @@
                 <li>
                     <a href="#services">Sobre</a>
                 </li>
+                <li>
+                    <a href="logout">Logout</a>
+                </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
