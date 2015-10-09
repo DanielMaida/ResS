@@ -61,7 +61,7 @@
                 <a href="#">Contato</a>
             </li>
             <li>
-                <a href="#">Sair</a>
+                <g:link controller="logout" action="index"> Sair</g:link>
             </li>
         </ul>
     </div>

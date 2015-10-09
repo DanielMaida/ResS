@@ -5,14 +5,24 @@ import br.ufpe.cin.ines.ress.UserRole
 class BootStrap {
 
     def init = { servletContext ->
-        def adminRole = Role.findByAuthority('ROLE_ADMIN') ?: new Role(authority: 'ROLE_ADMIN').save(failOnError: true)
-        def user = User.findByUsername('admin') ?: new User(username: 'admin',
+        def collectorRole = Role.findByAuthority('ROLE_COLLECTOR') ?: new Role(authority: 'ROLE_COLLECTOR').save(failOnError: true)
+        def collector = User.findByUsername('admin') ?: new User(username: 'admin',
                 password: 'pass',
                 name: 'Ronaldo',
                 address: new Address(street: 'Rua dos bobos', cep: '52912-123', city: 'Recife', state: 'Pernambuco', streetNumber: '0'),
                 enabled: true).save(failOnError: true)
-        if(!user.authorities.contains(adminRole)){
-            UserRole.create(user, adminRole, true)
+        if(!collector.authorities.contains(collectorRole)){
+            UserRole.create(collector, collectorRole, true)
+        }
+
+        def generatorRole = Role.findByAuthority('ROLE_GENERATOR') ?: new Role(authority: 'ROLE_GENERATOR').save(failOnError: true)
+        def generator = User.findByUsername('ru') ?: new User(username: 'ru',
+                password: 'pass',
+                name: 'Lucia',
+                address: new Address(street: 'Rua da frente do cac', cep: '52232-123', city: 'Recife', state: 'Pernambuco', streetNumber: '22'),
+                enabled: true).save(failOnError: true)
+        if(!generator.authorities.contains(generatorRole)){
+            UserRole.create(generator, generatorRole, true)
         }
     }
     def destroy = {
