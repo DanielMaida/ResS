@@ -2,7 +2,7 @@ package br.ufpe.cin.ines.ress.residuecollector
 
 import grails.plugins.springsecurity.Secured
 
-@Secured(['ROLER_ADMIN'])
+@Secured(['ROLE_COLLECTOR'])
 class CollectorDashboardController {
 
     def index() {}
