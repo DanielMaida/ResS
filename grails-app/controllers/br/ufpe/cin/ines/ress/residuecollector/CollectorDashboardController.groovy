@@ -1,6 +1,6 @@
 package br.ufpe.cin.ines.ress.residuecollector
 
-class GeneratorDashboardController {
+class CollectorDashboardController {
 
     def index() {}
 }
