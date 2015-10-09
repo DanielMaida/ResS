@@ -45,7 +45,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">Histórico de coletas</a>
+                <g:link controller="generatorDashboard" action="index">Histórico de coletas</g:link>
             </li>
             <li>
                 <a href="#">Solicitar coleta</a>

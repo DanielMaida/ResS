@@ -9,4 +9,9 @@ class GeneratorDashboardController {
         def pickupHistory = PickupRequest.findAll()
         render(view: 'index', model: [history : pickupHistory])
     }
+
+    def pickupRequest
+    {
+           
+    }
 }

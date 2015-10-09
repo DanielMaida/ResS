@@ -10,6 +10,7 @@
 <head>
     <meta name="layout" content="generatorLayout">
     <title></title>
+    <link rel="stylesheet" type="text/css" href="../css/table-data.css">
 </head>
 
 <body>
@@ -26,7 +27,7 @@
             <tbody>
                 <g:if test="${history.size() == 0}" >
                     <tr>
-                        <td colspan="2">Nenhuma coleta foi realizada em seu estabelecimento até o momento</td>
+                        <td colspan="2" style="text-align: center;">Nenhuma coleta foi realizada em seu estabelecimento até o momento</td>
                     </tr>
                 </g:if>
                 <g:else>
