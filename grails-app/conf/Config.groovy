@@ -98,3 +98,4 @@ grails.plugins.springsecurity.userLookup.userDomainClassName = 'br.ufpe.cin.ines
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'br.ufpe.cin.ines.ress.UserRole'
 grails.plugins.springsecurity.authority.className = 'br.ufpe.cin.ines.ress.Role'
 grails.plugins.springsecurity.successHandler.defaultTargetUrl = '/dashboard'
+grails.plugins.springsecurity.bcrypt.logrounds = 12
