@@ -22,4 +22,11 @@ class GeneratorDashboardController{
         PickupRequest pickupRequest = PickupRequest.findByGeneratorAndStatus(currentUser, true)
         render (view: "pickup", model:[pickup:pickupRequest])
     }
+
+    def savePickup()
+    {
+        def pickupRequest = new PickupRequest(params)
+        pickupRequest.save()
+        redirect(action: pickupRequest)
+    }
 }

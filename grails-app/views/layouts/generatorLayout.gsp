@@ -40,15 +40,13 @@
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
-                <a href="#">
-                    Painel de controle
-                </a>
+                <g:link controller="generatorDashboard" action="index">Painel de controle</g:link>
             </li>
             <li>
                 <g:link controller="generatorDashboard" action="index">Histórico de coletas</g:link>
             </li>
             <li>
-                <a href="#">Solicitar coleta</a>
+                <g:link controller="generatorDashboard" action="pickupRequest">Solicitar coleta</g:link>
             </li>
             <li>
                 <a href="#">Configurações da conta</a>

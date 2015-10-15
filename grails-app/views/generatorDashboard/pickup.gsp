@@ -10,14 +10,86 @@
 <head>
     <meta name="layout" content="generatorLayout">
     <title></title>
+    <link rel="stylesheet" type="text/css" href="../css/generatorDashboard/pickup-screen.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/table-data.css">
     <style type="text/css">
-        body
-        {
-            background-color: #3e94ec ;
-        }
+    .status {
+        font-family: monospace;
+        display: inline-block;
+        float: right;
+        height: 1em;
+        line-height: 1.2em;
+        text-indent: 0;
+        margin: 15px 10px;
+
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 1rem;
+        display: inline-block;
+        border: 1px solid;
+        border-radius: 0.25rem;
+        padding: 1px 3px 3px 3px;
+    }
+
+    .green {
+        color: green;
+    }
+
+    .red {
+        color: red;
+    }
     </style>
 </head>
+
 <body>
-        UAHSUAHSUAHSUSHUAHSUAHS
+<div id="page-content-wrapper">
+    <div id="header-warning" style="margin-left: 14px;">
+        <label>Solicitação de coleta de resíduos</label>
+    </div>
+    <g:if test="${pickup == null}">
+        <div id="form-content">
+            <g:form controller="generatorDashboard" action="savePickup">
+                <label id="icon" for="residueAmount"><i class="fa fa-trash-o"></i></label>
+                <input type="text" name="residueAmount" id="residueAmount" placeholder="Quantidade de resíduo" required/>
+                <a onclick="submitForm()" class="button">Solicitar coleta</a>
+                <input id="submitButton" type="submit" style="display: none"/>
+            </g:form>
+        </div>
+    </g:if>
+    <g:else>
+        <table>
+            <thead>
+            <tr>
+                <th>Data</th>
+                <th>Quantidade</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>${pickup.date}</td>
+                <td>${pickup.residueAmount}</td>
+                <td>
+                    <g:if test="${!pickup.status}">
+                        <span class="status red">pendente</span>
+                    </g:if>
+                    <g:else>
+                        <span class="status green">coleta iminente</span>
+                    </g:else>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </g:else>
+</div>
+
+<script>
+    function submitForm()
+    {
+        $("#submitButton").click();
+    }
+</script>
+
 </body>
 </html>
