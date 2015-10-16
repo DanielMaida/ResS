@@ -18,7 +18,7 @@
         font-family: monospace;
         display: inline-block;
         float: right;
-        height: 1em;
+        height: 2em;
         line-height: 1.2em;
         text-indent: 0;
         margin: 15px 10px;
@@ -45,13 +45,13 @@
 <body>
 <div id="page-content-wrapper">
     <div id="header-warning" style="margin-left: 14px;">
-        <label>Solicitação de coleta de resíduos</label>
+        <label style="font-size: 21px;">Solicitação de coleta de resíduos</label>
     </div>
     <g:if test="${pickup == null}">
         <div id="form-content">
             <g:form controller="generatorDashboard" action="savePickup">
                 <label id="icon" for="residueAmount"><i class="fa fa-trash-o"></i></label>
-                <input type="text" name="residueAmount" id="residueAmount" placeholder="Quantidade de resíduo" required/>
+                <input  id="resAmount" type="text" name="residueAmount" id="residueAmount" placeholder="Quantidade de resíduo (l)" required/>
                 <a onclick="submitForm()" class="button">Solicitar coleta</a>
                 <input id="submitButton" type="submit" style="display: none"/>
             </g:form>
@@ -68,8 +68,8 @@
             </thead>
             <tbody>
             <tr>
-                <td>${pickup.date}</td>
-                <td>${pickup.residueAmount}</td>
+                <td>${pickup.date.dateTimeString}</td>
+                <td>${pickup.residueAmount + " litros"} </td>
                 <td>
                     <g:if test="${!pickup.status}">
                         <span class="status red">pendente</span>
@@ -85,6 +85,10 @@
 </div>
 
 <script>
+    $(document).ready(function (){
+       $("#resAmount").mask("9999999999")
+    });
+
     function submitForm()
     {
         $("#submitButton").click();

@@ -17,7 +17,7 @@ grails.project.dependency.resolution = {
         // specify dependency exclusions here; for example, uncomment this to disable ehcache:
         // excludes 'ehcache'
     }
-    log "warn" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
+    log "error" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
     checksums true // Whether to verify checksums on resolve
     //legacyResolve true // whether to do a secondary resolve on plugin installation, not advised but here for backwards compatibility
 
@@ -31,6 +31,8 @@ grails.project.dependency.resolution = {
         mavenLocal()
         mavenCentral()
         mavenRepo "https://repo.grails.org/grails/plugins"
+        mavenRepo "http://repo.grails.org/grails/core"
+        mavenRepo "http://repo.grails.org/grails/repo/"
         // uncomment these (or add new ones) to enable remote dependency resolution from public Maven repositories
         mavenRepo "http://snapshots.repository.codehaus.org"
         mavenRepo "http://repository.codehaus.org"

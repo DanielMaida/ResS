@@ -37,7 +37,7 @@
                                 ${pickup.date}
                             </td>
                             <td>
-                                ${pickup.residueAmount}
+                                ${pickup.residueAmount + " litros"}
                             </td>
                         </tr>
                     </g:each>
