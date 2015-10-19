@@ -29,4 +29,14 @@ class GeneratorDashboardController{
         pickupRequest.save()
         redirect(action: pickupRequest)
     }
+
+    def accountConfig(){
+        User user = (User) springSecurityService.currentUser
+        render(view: "accountConfig", model:[user:user])
+    }
+
+    def saveAccountChanges(){
+        def user = new User(params)
+        user.save();
+    }
 }

@@ -5,6 +5,7 @@ class Address {
     String street
     String streetNumber
     String additionalInfo
+    String neighborhood
     String city
     String state
     String cep
@@ -18,5 +19,6 @@ class Address {
         state nullable: false, blank: false
         cep nullable: false, blank: false
         additionalInfo nullable: true
+        neighborhood blank: false, nullable: false
     }
 }

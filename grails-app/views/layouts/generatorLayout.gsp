@@ -49,7 +49,7 @@
                 <g:link controller="generatorDashboard" action="pickupRequest">Solicitar coleta</g:link>
             </li>
             <li>
-                <a href="#">Configurações da conta</a>
+                <g:link controller="generatorDashboard" action="accountConfig">Configurações de conta</g:link>
             </li>
             <li>
                 <a href="#">Contato</a>
