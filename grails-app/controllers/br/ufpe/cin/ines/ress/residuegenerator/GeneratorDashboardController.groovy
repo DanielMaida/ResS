@@ -12,22 +12,27 @@ class GeneratorDashboardController{
 
     def index()
     {
-        def pickupHistory = PickupRequest.findAll()
+        def pickupHistory = PickupRequest.findAllByStatus(true)
         render(view: 'index', model: [history : pickupHistory])
     }
 
     def pickupRequest()
     {
         User currentUser = (User)springSecurityService.currentUser;
-        PickupRequest pickupRequest = PickupRequest.findByGeneratorAndStatus(currentUser, true)
+        PickupRequest pickupRequest = PickupRequest.findByGeneratorAndStatus(currentUser, false)
         render (view: "pickup", model:[pickup:pickupRequest])
     }
 
     def savePickup()
     {
         def pickupRequest = new PickupRequest(params)
+        User currentUser = (User)springSecurityService.currentUser;
+        pickupRequest.generator = currentUser
+        pickupRequest.date = new Date()
+        pickupRequest.status = false
+        pickupRequest.collector = User.findByUsername('admin')
         pickupRequest.save()
-        redirect(action: pickupRequest)
+        redirect(action:'pickupRequest')
     }
 
     def accountConfig(){

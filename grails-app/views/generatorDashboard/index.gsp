@@ -34,10 +34,10 @@
                     <g:each var="pickup" in="${history}">
                         <tr>
                             <td>
-                                ${pickup.date}
+                                ${pickup.date.dateTimeString}
                             </td>
                             <td>
-                                ${pickup.residueAmount}
+                                ${pickup.residueAmount + " litros"}
                             </td>
                         </tr>
                     </g:each>
