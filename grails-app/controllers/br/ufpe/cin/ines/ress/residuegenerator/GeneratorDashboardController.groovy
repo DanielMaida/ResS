@@ -32,6 +32,6 @@ class GeneratorDashboardController{
         pickupRequest.status = false
         pickupRequest.collector = User.findByUsername('admin')
         pickupRequest.save()
-        redirect(action: pickupRequest)
+        redirect(action:'pickupRequest')
     }
 }

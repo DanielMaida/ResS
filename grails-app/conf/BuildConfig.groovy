@@ -74,4 +74,14 @@ grails.project.dependency.resolution = {
 
         test ":geb:0.9.2"
     }
+
+    grails.resources.modules = {
+        core {
+            resource url: '/js/homepage/jquery.js'
+        }
+        myScript {
+            resource url: '/js/mask/jquery.mask.js'
+            dependsOn 'core'
+        }
+    }
 }

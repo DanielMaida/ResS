@@ -13,6 +13,18 @@
     <link rel="stylesheet" type="text/css" href="../css/generatorDashboard/pickup-screen.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../css/table-data.css">
+    <script src="../js/homepage/jquery.js"></script>
+    <script src="../js/mask/jquery.maskedinput.js"></script>
+    <script type="text/javascript">
+        jQuery(function($){
+            $("#residueAmount").mask("9?99999",{placeholder:" "});
+        });
+
+        function submitForm()
+        {
+            $("#submitButton").click();
+        }
+    </script>
     <style type="text/css">
     .status {
         font-family: monospace;
@@ -51,7 +63,7 @@
         <div id="form-content">
             <g:form controller="generatorDashboard" action="savePickup">
                 <label id="icon" for="residueAmount"><i class="fa fa-trash-o"></i></label>
-                <input  id="resAmount" type="text" name="residueAmount" id="residueAmount" placeholder="Quantidade de resíduo (l)" required/>
+                <input type="text" name="residueAmount" id="residueAmount" placeholder="Quantidade de resíduo (L)" required/>
                 <a onclick="submitForm()" class="button">Solicitar coleta</a>
                 <input id="submitButton" type="submit" style="display: none"/>
             </g:form>
@@ -83,17 +95,5 @@
         </table>
     </g:else>
 </div>
-
-<script>
-    $(document).ready(function (){
-       $("#resAmount").mask("9999999999")
-    });
-
-    function submitForm()
-    {
-        $("#submitButton").click();
-    }
-</script>
-
 </body>
 </html>
