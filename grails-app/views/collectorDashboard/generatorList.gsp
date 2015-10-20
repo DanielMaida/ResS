@@ -11,6 +11,17 @@
     <meta name="layout" content="collectorLayout">
     <title></title>
     <link rel="stylesheet" type="text/css" href="../css/table-data.css">
+    <style type="text/css">
+        th
+        {
+            width: 30%;
+        }
+
+        .address
+        {
+            width: 100% !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -22,7 +33,7 @@
             <tr>
                 <th>Nome</th>
                 <th>Email</th>
-                <th>Endereco</th>
+                <th class="address">Endereco</th>
             </tr>
             </thead>
             <tbody>
