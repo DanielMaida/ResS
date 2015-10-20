@@ -11,12 +11,14 @@
     <meta name="layout" content="generatorLayout">
     <title></title>
     <link rel="stylesheet" type="text/css" href="../css/table-data.css">
+    <link rel="stylesheet" type="text/css" href="../css/generatorDashboard/button.css"/>
     <style type="text/css">
         th
         {
             width: 16% !important;
         }
     </style>
+
 </head>
 
 <body>
@@ -51,6 +53,7 @@
         </tr>
        </tbody>
    </table>
+        <g:link controller="generatorDashboard" action="editAccountConfig" class="button"> Editar </g:link>
 </div>
 </body>
 </html>
