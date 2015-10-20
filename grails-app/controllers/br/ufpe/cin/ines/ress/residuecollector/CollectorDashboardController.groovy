@@ -21,7 +21,7 @@ class CollectorDashboardController {
 
     def collectionHistory()
     {
-        def closedPickups = PickupRequest.findAllByStatus(false)
+        def closedPickups = PickupRequest.findAllByStatus(true)
         render (view:'collectionHistory', model:[closedPickups : closedPickups])
     }
 
