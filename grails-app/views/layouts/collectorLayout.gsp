@@ -55,7 +55,7 @@
                 <a href="#">Lista de geradores de resíduo </a>
             </li>
             <li>
-                <a href="#">Configurações da conta</a>
+                <g:link controller="collectorDashboard" action="accountConfig">Configurações de conta</g:link>
             </li>
             <li>
                 <a href="#">Contato</a>
