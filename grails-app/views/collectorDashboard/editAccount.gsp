@@ -40,7 +40,7 @@
 
             <div>
                 <input type="submit" class="button" value="Confirmar"/>
-                <g:link controller="generatorDashboard" action="accountConfig" class="button"> Cancelar </g:link>
+                <g:link controller="collectorDashboard" action="accountConfig" class="button"> Cancelar </g:link>
             </div>
         </fieldset>
     </g:form>
