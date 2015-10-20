@@ -41,18 +41,16 @@
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
-                <a href="#">
-                    Painel de controle
-                </a>
+                <g:link controller="collectorDashboard" action="index">Painel de controle</g:link>
             </li>
             <li>
-                <a href="#">Lista de coletas</a>
+                <g:link controller="collectorDashboard" action="index">Coletas em aberto</g:link>
             </li>
             <li>
-                <a href="#">Histórico de coletas</a>
+                <g:link controller="collectorDashboard" action="collectionHistory">Histórico de coletas</g:link>
             </li>
             <li>
-                <a href="#">Lista de geradores de resíduo </a>
+                <g:link controller="collectorDashboard" action="generatorList">Geradores de resíduo</g:link>
             </li>
             <li>
                 <a href="#">Configurações da conta</a>
@@ -61,7 +59,7 @@
                 <a href="#">Contato</a>
             </li>
             <li>
-                <g:link controller="logout" action="index"> Sair</g:link>
+                <g:link controller="logout" action="index">Sair</g:link>
             </li>
         </ul>
     </div>
@@ -82,7 +80,7 @@
 
 <!-- Menu Toggle Script -->
 <script>
-    $("#menu-toggle").click(function(e) {
+    $("#menu-toggle").click(function (e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
