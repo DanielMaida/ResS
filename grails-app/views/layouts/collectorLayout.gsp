@@ -53,7 +53,7 @@
                 <g:link controller="collectorDashboard" action="generatorList">Geradores de resíduo</g:link>
             </li>
             <li>
-                <a href="#">Configurações da conta</a>
+                <g:link controller="collectorDashboard" action="accountConfig">Configurações de conta</g:link>
             </li>
             <li>
                 <a href="#">Contato</a>
