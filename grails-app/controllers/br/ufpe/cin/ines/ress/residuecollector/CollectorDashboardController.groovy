@@ -8,6 +8,8 @@ import grails.plugins.springsecurity.Secured
 import org.springframework.security.core.Authentication
 import org.springframework.security.core.context.SecurityContextHolder
 
+import static br.ufpe.cin.ines.ress.User.*
+
 @Secured(['ROLE_COLLECTOR'])
 class CollectorDashboardController {
 
@@ -19,22 +21,21 @@ class CollectorDashboardController {
     }
 
 
-    def collectionHistory()
+    def collectionHistory(Integer max)
     {
+        params.max = Math.min(max ?: 10, 100)
         def closedPickups = PickupRequest.findAllByStatus(true)
-        render (view:'collectionHistory', model:[closedPickups : closedPickups])
+        render (view:'collectionHistory', model:[closedPickups : closedPickups, countPickUps: count()])
     }
 
     def generatorList()
     {
         def generators = User.findAll()
-
         generators.removeAll {
             !it.getAuthorities().contains(Role.findByAuthority('ROLE_GENERATOR'))
         }
 
-        render (view: 'generatorList', model: [userList:generators])
-
+        render (view: 'generatorList', model: [userList: generators])
     }
 
 

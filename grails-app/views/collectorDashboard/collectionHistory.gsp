@@ -47,6 +47,9 @@
 
                     </tr>
                 </g:each>
+                <div class="pagination">
+                    <g:paginate total="${countPickUps}"/>
+                </div>
             </g:else>
             </tbody>
         </table>
