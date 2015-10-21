@@ -16,7 +16,7 @@
 <body>
 <div id="page-content-wrapper">
 
-    <div id ="collectionHistory">
+    <div id="collectionHistory">
         <table>
             <thead>
             <tr>
@@ -27,7 +27,7 @@
             </tr>
             </thead>
             <tbody>
-            <g:if test="${openPickupList.size() == 0}" >
+            <g:if test="${openPickupList.size() == 0}">
                 <tr>
                     <td colspan="4" style="text-align: center;">Nenhum pedido de coleta está aberto no momento</td>
                 </tr>
@@ -45,7 +45,10 @@
                             ${pickup.generator.name}
                         </td>
                         <td>
-                            <input type="button" name="Coletado" value="Confirmar coleta"/>
+                            <g:form controller="collectorDashboard">
+                                <g:hiddenField name="id" value="${pickup.id}"/>
+                                <g:actionSubmit value="Confirmar coleta" action="collect"/>
+                            </g:form>
                         </td>
                     </tr>
                 </g:each>

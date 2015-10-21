@@ -38,6 +38,14 @@ class CollectorDashboardController {
         render (view: 'generatorList', model: [userList: generators])
     }
 
+    def collect(int id)
+    {
+        def pickup = PickupRequest.findById(id)
+        pickup.status = true;
+        pickup.save()
+        redirect(action: 'index')
+    }
+
 
     def accountConfig(){
         User user = (User) springSecurityService.currentUser
