@@ -56,9 +56,6 @@
                 <g:link controller="collectorDashboard" action="accountConfig">Configurações de conta</g:link>
             </li>
             <li>
-                <a href="#">Contato</a>
-            </li>
-            <li>
                 <g:link controller="logout" action="index">Sair</g:link>
             </li>
         </ul>
