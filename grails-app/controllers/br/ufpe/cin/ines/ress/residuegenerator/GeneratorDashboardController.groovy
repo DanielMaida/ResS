@@ -12,7 +12,8 @@ class GeneratorDashboardController{
 
     def index()
     {
-        def pickupHistory = PickupRequest.findAllByStatus(true)
+        User currentUser = (User)springSecurityService.currentUser;
+        def pickupHistory = PickupRequest.findAllByGeneratorAndStatus(currentUser, true)
         render(view: 'index', model: [history : pickupHistory])
     }
 
