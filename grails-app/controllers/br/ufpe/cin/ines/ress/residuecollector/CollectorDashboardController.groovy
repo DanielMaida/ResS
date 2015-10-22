@@ -48,6 +48,7 @@ class CollectorDashboardController {
     }
 
 
+
     def accountConfig(){
         User user = (User) springSecurityService.currentUser
         render(view: "accountConfig", model:[user:user])
