@@ -1,9 +1,8 @@
 dataSource {
     pooled = true
-    driverClassName = "org.postgresql.Driver"
-    dialect = org.hibernate.dialect.PostgreSQLDialect
-    username = "owgykkwoojsglf"
-    password = "_rSCRrCVlhzdXrI8rcB9UKHUjE"
+    driverClassName = "org.h2.Driver"
+    username = "sa"
+    password = ""
 }
 hibernate {
     cache.use_second_level_cache = true
@@ -27,17 +26,17 @@ environments {
     production {
         dataSource {
             dbCreate = "update"
-            url = "postgres://owgykkwoojsglf:_rSCRrCVlhzdXrI8rcB9UKHUjE@ec2-107-21-219-142.compute-1.amazonaws.com:5432/dbtkgm9kvnmhgd"
+            url = "jdbc:h2:prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
             pooled = true
             properties {
-               maxActive = -1
-               minEvictableIdleTimeMillis=1800000
-               timeBetweenEvictionRunsMillis=1800000
-               numTestsPerEvictionRun=3
-               testOnBorrow=true
-               testWhileIdle=true
-               testOnReturn=true
-               validationQuery="SELECT 1"
+                maxActive = -1
+                minEvictableIdleTimeMillis=1800000
+                timeBetweenEvictionRunsMillis=1800000
+                numTestsPerEvictionRun=3
+                testOnBorrow=true
+                testWhileIdle=true
+                testOnReturn=true
+                validationQuery="SELECT 1"
             }
         }
     }
