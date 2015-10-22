@@ -48,6 +48,7 @@ grails.project.dependency.resolution = {
         test "org.seleniumhq.selenium:selenium-support:2.39.0"
         test "org.seleniumhq.selenium:selenium-firefox-driver:2.39.0"
         test "org.seleniumhq.selenium:selenium-chrome-driver:2.39.0"
+        compile "org.grails.plugins:heroku:1.0.1"
     }
 
     plugins {
@@ -61,7 +62,8 @@ grails.project.dependency.resolution = {
         //runtime ":zipped-resources:1.0"
         //runtime ":cached-resources:1.0"
         //runtime ":yui-minify-resources:0.1.5"
-
+        compile ':heroku:1.0.1'
+        compile ':cloud-support:1.0.11'
         build ":tomcat:$grailsVersion"
 
         runtime ":database-migration:1.3.2"

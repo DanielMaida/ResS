@@ -8,7 +8,7 @@ class BootStrap {
         def collectorRole = Role.findByAuthority('ROLE_COLLECTOR') ?: new Role(authority: 'ROLE_COLLECTOR').save(failOnError: true)
         def collector = User.findByUsername('admin') ?: new User(username: 'admin',
                 password: 'pass',
-                name: 'Ronaldo',
+                name: 'Prefeitura',
                 email: 'admin@gmail.com',
                 address: new Address(street: 'Rua um', cep: '52912-123', city: 'Recife', state: 'Pernambuco', streetNumber: '0', neighborhood: 'Cidade Universitária'),
                 enabled: true).save(failOnError: true)
@@ -19,7 +19,7 @@ class BootStrap {
         def generatorRole = Role.findByAuthority('ROLE_GENERATOR') ?: new Role(authority: 'ROLE_GENERATOR').save(failOnError: true)
         def generator = User.findByUsername('ru') ?: new User(username: 'ru',
                 password: 'pass',
-                name: 'Lucia',
+                name: 'Restaurante Universitário',
                 email: 'ru@gmail.com',
                 address: new Address(street: 'Rua dois', cep: '52232-123', city: 'Recife', state: 'Pernambuco', streetNumber: '22', neighborhood: 'Cidade Universitária'),
                 enabled: true).save(failOnError: true)
@@ -30,7 +30,7 @@ class BootStrap {
         def generatorRole2 = Role.findByAuthority('ROLE_GENERATOR') ?: new Role(authority: 'ROLE_GENERATOR').save(failOnError: true)
         def generator2 = User.findByUsername('cantina') ?: new User(username: 'cantina',
                 password: 'pass',
-                name: 'Luiz',
+                name: 'Cantina da Área 2',
                 email: 'cantina@gmail.com',
                 address: new Address(street: 'Rua tres', cep: '52223-123', city: 'Recife', state: 'Pernambuco', streetNumber: '99', neighborhood: 'Cidade Universitária'),
                 enabled: true).save(failOnError: true)
