@@ -49,7 +49,6 @@ grails.project.dependency.resolution = {
         test "org.seleniumhq.selenium:selenium-firefox-driver:2.39.0"
         test "org.seleniumhq.selenium:selenium-chrome-driver:2.39.0"
         compile "org.grails.plugins:heroku:1.0.1"
-        runtime: 'postgresql:postgresql:9.0-802.jdbc4'
     }
 
     plugins {
