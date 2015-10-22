@@ -41,7 +41,9 @@ grails.project.dependency.resolution = {
         mavenRepo "https://repo.grails.org/grails/plugins"
         mavenRepo "http://dl.bintray.com/alkemist/maven/"
     }
+
     dependencies {
+        compile 'javax.mail:mail:1.4'
         compile "org.spockframework:spock-grails-support:0.7-groovy-1.8"
         test "org.gebish:geb-junit4:0.9.2"
         compile "org.grails.plugins:spring-security-bcrypt:0.3"
@@ -52,6 +54,7 @@ grails.project.dependency.resolution = {
     }
 
     plugins {
+
         compile ":remote-control:1.4"
         compile ":jquery-ui:1.10.4"
         runtime ":hibernate:$grailsVersion"
@@ -76,7 +79,6 @@ grails.project.dependency.resolution = {
 
         test ":geb:0.9.2"
     }
-
     grails.resources.modules = {
         core {
             resource url: '/js/homepage/jquery.js'

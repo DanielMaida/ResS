@@ -4,6 +4,7 @@ import br.ufpe.cin.ines.ress.DashboardController
 import br.ufpe.cin.ines.ress.PickupRequest
 import br.ufpe.cin.ines.ress.User
 import grails.plugins.springsecurity.Secured
+import mail.MailService
 
 @Secured(['ROLE_GENERATOR'])
 class GeneratorDashboardController{
@@ -33,6 +34,7 @@ class GeneratorDashboardController{
         pickupRequest.status = false
         pickupRequest.collector = User.findByUsername('admin')
         pickupRequest.save()
+        MailService.sendEmail("dfm2@cin.ufpe.br", pickupRequest.generator.name, pickupRequest.date, pickupRequest.residueAmount)
         redirect(action:'pickupRequest')
     }
 
