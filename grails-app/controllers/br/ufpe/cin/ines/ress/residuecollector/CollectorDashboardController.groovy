@@ -23,9 +23,10 @@ class CollectorDashboardController {
 
     def collectionHistory(Integer max)
     {
-        params.max = Math.min(max ?: 10, 100)
+        params.max = Math.min(max ?: 2, 100)
         def closedPickups = PickupRequest.findAllByStatus(true)
-        render (view:'collectionHistory', model:[closedPickups : closedPickups, countPickUps: count()])
+
+        render (view:'collectionHistory', model:[closedPickups : closedPickups])
     }
 
     def generatorList()
