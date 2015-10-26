@@ -1,8 +1,11 @@
 dataSource {
     pooled = true
-    driverClassName = "org.h2.Driver"
-    username = "sa"
-    password = ""
+    driverClassName = "org.postgresql.Driver"
+    dialect = org.hibernate.dialect.PostgreSQLDialect
+    uri = new URI(System.env.DATABASE_URL?:"postgres://test:test@localhost/test")
+    url = "jdbc:postgresql://" + uri.host + ":" + uri.port + uri.path
+    username = uri.userInfo.split(":")[0]
+    password = uri.userInfo.split(":")[1]
 }
 hibernate {
     cache.use_second_level_cache = true
