@@ -1,0 +1,29 @@
+Feature:
+  As a user of the ResS system
+  I want to edit my profile
+  So that i can alter my username, email or password
+
+
+  Scenario: Edit generator profile
+    Given I am at the the edit profile page as a generator
+    When Fill the username field with "cantina"
+    And the password field with "12345"
+    And the email field with "cantina@ufpe.br"
+    And I confirm the edition
+    Then I see at the account settings page my new settings
+
+  Scenario: Edit collector profile
+    Given I am at the the edit profile page as a collector
+    When Fill the username field with "newadmin"
+    And the password field with "12345"
+    And the email field with "newadmin@ufpe.br"
+    And I confirm the edition
+    Then I see at the account settings page my new settings
+
+  Scenario: User profile changes
+    Given Exists an user with the username "ru" in the system
+    When I change the username to "cantina"
+    And the password to "12345"
+    And the email to "cantina@ufpe.br"
+    Then The user has new account settings
+
