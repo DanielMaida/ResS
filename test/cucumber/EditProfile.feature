@@ -10,7 +10,7 @@ Feature:
     And the password field with "12345"
     And the email field with "cantina@ufpe.br"
     And I confirm the edition
-    Then I see at the account settings page my new settings
+    Then I see at the account settings page my new generator settings
 
   Scenario: Edit collector profile
     Given I am at the the edit profile page as a collector
@@ -18,7 +18,7 @@ Feature:
     And the password field with "12345"
     And the email field with "newadmin@ufpe.br"
     And I confirm the edition
-    Then I see at the account settings page my new settings
+    Then I see at the account settings page my new collector settings
 
   Scenario: User profile changes
     Given Exists an user with the username "ru" in the system

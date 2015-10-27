@@ -12,23 +12,26 @@ When(~'^I go to the login page$'){ ->
     at LoginAuthenticationPage
 }
 
-And(~'^Enter the username "([^"]*)"$'){-> String username
+And(~'^Enter the username "([^"]*)"$'){ String username ->
     page.fillUsername(username)
 }
 
-And(~'^The password "([^"]*)" at the correct fields$'){-> String password
+And(~'^The password "([^"]*)" at the correct fields$'){ String password ->
     page.fillPassword(password)
 }
 
 Then(~'^I log in as a generator$'){->
+    page.logInButtonClick()
     at GeneratorDashboardPage
 }
 
 Then(~'^I log in as a collector$'){->
+    page.logInButtonClick()
     at CollectorDashboardPage
 }
 
 Then(~'^I can not log in$'){->
+    page.logInButtonClick()
     at LoginAuthenticationPage
 }
 
