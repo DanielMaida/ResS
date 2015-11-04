@@ -1,4 +1,4 @@
-Feature:
+Feature: Edit Profile
   As a user of the ResS system
   I want to edit my profile
   So that i can alter my username, email or password
@@ -11,7 +11,7 @@ Feature:
     And the email field with "cantina@ufpe.br"
     And I confirm the edition
     Then I see at the account settings page my new generator settings
-
+@ignore
   Scenario: Edit collector profile
     Given I am at the the edit profile page as a collector
     When Fill the username field with "newadmin"
@@ -19,7 +19,7 @@ Feature:
     And the email field with "newadmin@ufpe.br"
     And I confirm the edition
     Then I see at the account settings page my new collector settings
-
+@ignore
   Scenario: User profile changes
     Given Exists an user with the username "ru" in the system
     When I change the username to "cantina"
