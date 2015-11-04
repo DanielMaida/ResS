@@ -10,6 +10,7 @@ Feature: Create pickup request
     Then  my pickup request should be stored in the database
     And   the collector should be warned by email
 
+
   @ignore
   Scenario: Pickup request fail
     Given there is no open pickup request for the residue generator with the id "42"
@@ -22,6 +23,7 @@ Feature: Create pickup request
     When  I fill the residue amount field with "60"
     And   submit the value
     Then  I should be taken to page with the pickup request information
+
 
   @ignore
   Scenario: Pickup request error interface
