@@ -13,10 +13,10 @@ When(~'^I make a pickup request for my "([^"]*)" liters residue container$'){ St
     ResidueGeneratorTestAuxilar.createPickup(amount, generatorUsername);
 }
 
-Then(~'^my pickup request should be stored in the database$'){
+Then(~'^my pickup request should be stored in the database$'){ ->
     assert ResidueGeneratorTestAuxilar.findPickupByUsername(generatorUsername)
 }
 
-And(~'^the collector should be warned by email$'){
+And(~'^the collector should be warned by email$'){ ->
     assert ResidueGeneratorTestAuxilar.sendEmail(generatorUsername, amount)
 }

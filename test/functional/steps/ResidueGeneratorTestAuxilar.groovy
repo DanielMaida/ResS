@@ -33,7 +33,7 @@ class ResidueGeneratorTestAuxilar {
     public static def injectGenerator(String username)
     {
         User generator = findGenerator(username);
-        generator.save();
+        generator.save(flush:true);
     }
 
     public static def injectCollector()
@@ -53,7 +53,7 @@ class ResidueGeneratorTestAuxilar {
                         email: "dimmy@gmail.com"
                 );
 
-        collector.save();
+        collector.save(flush:true);
 
     }
 
@@ -69,7 +69,7 @@ class ResidueGeneratorTestAuxilar {
 
     public static def findPickupByUsername(String username)
     {
-        User generator = findGenerator(username);
+        User generator = User.findByUsername(username);
         return PickupRequest.findByGeneratorAndStatus(generator, false);
     }
 
@@ -77,9 +77,10 @@ class ResidueGeneratorTestAuxilar {
     {
         PickupRequest pickup = new PickupRequest
                 (
+                    id: 42,
                     date : new Date(),
                     residueAmount: residueAmount,
-                    generator: findGenerator(username),
+                    generator: User.findByUsername(username),
                     collector: User.findByUsername("testcoldummy"),
                     status: false
                 )
