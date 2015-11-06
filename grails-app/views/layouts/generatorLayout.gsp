@@ -51,7 +51,7 @@
             <li>
                 <g:link controller="generatorDashboard" action="accountConfig">Configurações de conta</g:link>
             </li>
-            <li>
+            <li id="logout">
                 <g:link controller="logout" action="index">Sair</g:link>
             </li>
         </ul>

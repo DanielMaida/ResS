@@ -9,6 +9,9 @@ Feature: Login Authentication
     And Enter the username "ru"
     And The password "12345" at the correct fields
     Then I can not log in
+
+
+  #testes não estão funcionando por incompatibilidade do spring security com o grails
 @ignore
   Scenario: Log in as a generator
     Given I am at the HomePage
