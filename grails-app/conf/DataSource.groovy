@@ -1,8 +1,9 @@
 dataSource {
     pooled = true
-    driverClassName = "org.h2.Driver"
-    username = "sa"
-    password = ""
+    driverClassName = "org.postgresql.Driver"
+    dialect = org.hibernate.dialect.PostgreSQLDialect
+    username = "xfrrxdrflqvzvy"
+    password = "DdQ0azV_GS8A8mkz3uFWdobThS"
 }
 hibernate {
     cache.use_second_level_cache = true
@@ -13,8 +14,8 @@ hibernate {
 environments {
     development {
         dataSource {
-            dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
+            dbCreate = "none" // one of 'create', 'create-drop', 'update', 'validate', ''
+            url = "postgres://xfrrxdrflqvzvy:DdQ0azV_GS8A8mkz3uFWdobThS@ec2-54-225-194-162.compute-1.amazonaws.com:5432/ddgagsdfr5tqk8"
         }
     }
     test {
@@ -25,8 +26,8 @@ environments {
     }
     production {
         dataSource {
-            dbCreate = "update"
-            url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
+            dbCreate = "none"
+            url = "postgres://xfrrxdrflqvzvy:DdQ0azV_GS8A8mkz3uFWdobThS@ec2-54-225-194-162.compute-1.amazonaws.com:5432/ddgagsdfr5tqk8"
             pooled = true
             properties {
                 maxActive = -1

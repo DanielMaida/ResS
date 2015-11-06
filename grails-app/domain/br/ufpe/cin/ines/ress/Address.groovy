@@ -21,4 +21,9 @@ class Address {
         additionalInfo nullable: true
         neighborhood blank: false, nullable: false
     }
+
+    static mapping = {
+        cache true
+    }
+
 }
