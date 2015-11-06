@@ -28,26 +28,10 @@ environments {
             dbCreate = "update"
             driverClassName = "org.postgresql.Driver"
             dialect = org.hibernate.dialect.PostgreSQLDialect
-
             uri = new URI(System.env.DATABASE_URL?:"postgres://xfrrxdrflqvzvy:DdQ0azV_GS8A8mkz3uFWdobThS@ec2-54-225-194-162.compute-1.amazonaws.com:5432/ddgagsdfr5tqk8")
-
             url = "jdbc:postgresql://" + uri.host + ":" + uri.port + uri.path
             username = uri.userInfo.split(":")[0]
             password = uri.userInfo.split(":")[1]
-
-//            dbCreate = "update"
-//            url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
-//            pooled = true
-//            properties {
-//                maxActive = -1
-//                minEvictableIdleTimeMillis=1800000
-//                timeBetweenEvictionRunsMillis=1800000
-//                numTestsPerEvictionRun=3
-//                testOnBorrow=true
-//                testWhileIdle=true
-//                testOnReturn=true
-//                validationQuery="SELECT 1"
-//            }
         }
     }
 }
