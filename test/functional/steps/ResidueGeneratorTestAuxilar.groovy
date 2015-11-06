@@ -10,6 +10,7 @@ import br.ufpe.cin.ines.ress.PickupRequest
 import br.ufpe.cin.ines.ress.User
 import br.ufpe.cin.ines.ress.Address
 import br.ufpe.cin.ines.ress.residuegenerator.GeneratorDashboardController
+import mail.MailService
 
 class ResidueGeneratorTestAuxilar {
     static generators =
@@ -69,7 +70,7 @@ class ResidueGeneratorTestAuxilar {
     public static def findPickupByUsername(String username)
     {
         User generator = findGenerator(username);
-        return PickupRequest.findByGenerator(generator);
+        return PickupRequest.findByGeneratorAndStatus(generator, false);
     }
 
     public static def createPickup(double residueAmount, String username)
@@ -83,6 +84,11 @@ class ResidueGeneratorTestAuxilar {
                     status: false
                 )
         pickup.save()
+    }
+
+    public static def sendEmail(String name, double residueAmount)
+    {
+        return MailService.sendEmail("dfm2@cin.ufpe.br", name, new Date(), residueAmount)
     }
 
 }
