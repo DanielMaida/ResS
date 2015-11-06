@@ -14,8 +14,8 @@ hibernate {
 environments {
     development {
         dataSource {
-            dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
+            dbCreate = "none" // one of 'create', 'create-drop', 'update', 'validate', ''
+            url = "postgres://xfrrxdrflqvzvy:DdQ0azV_GS8A8mkz3uFWdobThS@ec2-54-225-194-162.compute-1.amazonaws.com:5432/ddgagsdfr5tqk8"
         }
     }
     test {
