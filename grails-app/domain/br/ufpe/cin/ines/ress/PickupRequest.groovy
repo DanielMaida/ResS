@@ -18,4 +18,9 @@ class PickupRequest {
         collector blank:false , nullable: false
         status blank:false , nullable: false
     }
+
+    static mapping = {
+        cache true
+    }
+
 }
