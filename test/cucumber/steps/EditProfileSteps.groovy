@@ -1,6 +1,8 @@
+import br.ufpe.cin.ines.ress.User
 import net.sf.ehcache.search.expression.And
 import pages.*
-import steps.EditProfileTestAuxiliar
+import steps.ResidueGeneratorTestAuxilar
+
 import static cucumber.api.groovy.EN.*
 
 
@@ -39,21 +41,24 @@ Then(~'^I see at the account settings page my new collector settings$'){->
 }
 
 Given(~'^Exists an user with the username "([^"]*)" in the system$'){String username ->
-    EditProfileTestAuxiliar.findUserByUsername(username)
+    ResidueGeneratorTestAuxilar.injectGenerator(username)
+    oldUsername = username;
 }
 
 When(~'^I change the username to "([^"]*)"$'){String newUsername ->
-    EditProfileTestAuxiliar.updateUsername(newUsername)
+    ResidueGeneratorTestAuxilar.updateUsername(newUsername, oldUsername)
+    newUsername_ = newUsername
 }
 
 And(~'^the password to "([^"]*)"$'){String password ->
-    EditProfileTestAuxiliar.updatePassword(password)
+    ResidueGeneratorTestAuxilar.updatePassword(password, newUsername_)
 }
 
 And(~'^the email to "([^"]*)"$'){String email ->
-    EditProfileTestAuxiliar.updateEmail(email)
+    ResidueGeneratorTestAuxilar.updateEmail(email, newUsername_)
 }
 
-Then(~'^The user has new account settings$'){->
-    EditProfileTestAuxiliar.findUserByUsername(newUsername)
+Then(~'^The user has new account settings$'){ ->
+   assert ResidueGeneratorTestAuxilar.findGenerator(newUsername_) == null
+   assert ResidueGeneratorTestAuxilar.findGenerator(oldUsername) != null
 }

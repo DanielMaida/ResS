@@ -19,7 +19,7 @@ Feature: Edit Profile
     And the email field with "newadmin@ufpe.br"
     And I confirm the edition
     Then I see at the account settings page my new collector settings
-@ignore
+
   Scenario: User profile changes
     Given Exists an user with the username "ru" in the system
     When I change the username to "cantina"

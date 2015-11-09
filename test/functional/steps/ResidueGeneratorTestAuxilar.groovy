@@ -27,6 +27,19 @@ class ResidueGeneratorTestAuxilar {
                                cep: '65520020'
                        ), name:"Freddy",
                        email: "freddy@gmail.com"
+               ],
+               [
+                       username:"ru",
+                       password:"testpass",
+                       address: new Address(
+                               street:"Elm street",
+                               streetNumber: "13",
+                               neighborhood: "Devil's pit",
+                               city: "Charming",
+                               state: "Arkansas",
+                               cep: '65520020'
+                       ), name:"Freddy",
+                       email: "freddy@gmail.com"
                ]
             ]
 
@@ -84,6 +97,26 @@ class ResidueGeneratorTestAuxilar {
                     status: false
                 )
         pickup.save()
+    }
+
+    public static def updateUsername(String username, String oldUsername){
+            if(User.findByUsername(username) == null){
+                User user = User.findByUsername(oldUsername)
+                user.username = username
+                user.save()
+            }
+    }
+
+    public static def updatePassword(String password, String newUsername){
+            User user = User.findByUsername(newUsername)
+            user.password = password
+            user.save()
+    }
+
+    public static def updateEmail(String email, String newUsername){
+            User user = User.findByUsername(newUsername)
+            user.email = email
+            user.save()
     }
 
     public static def sendEmail(String name, double residueAmount)
