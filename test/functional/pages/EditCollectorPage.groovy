@@ -12,4 +12,16 @@ class EditCollectorPage extends Page {
     static at = {
         title ==~ titulo
     }
+
+    def fillCollectorUsername(String username){
+        $("input", id: "username").value(username)
+    }
+
+    def fillCollectorPassword(String password){
+        $("input", id: "password").value(password)
+    }
+
+    def confirmCollectorEdition(){
+        $("input", value: "Confirmar").click()
+    }
 }

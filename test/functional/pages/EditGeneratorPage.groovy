@@ -12,4 +12,16 @@ class EditGeneratorPage extends Page {
     static at = {
         title ==~ titulo
     }
+
+    def fillGeneratorUsername(String username){
+        $("input", id: "username").value(username)
+    }
+
+    def fillGeneratorPassword(String password){
+        $("input", id: "password").value(password)
+    }
+
+    def confirmGeneratorEdition(){
+        $("input", value: "Confirmar").click()
+    }
 }

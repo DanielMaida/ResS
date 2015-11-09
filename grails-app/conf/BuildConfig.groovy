@@ -51,8 +51,7 @@ grails.project.dependency.resolution = {
         test "org.seleniumhq.selenium:selenium-firefox-driver:2.39.0"
         test "org.seleniumhq.selenium:selenium-chrome-driver:2.39.0"
         compile "org.grails.plugins:heroku:1.0.1"
-        runtime 'postgresql:postgresql:8.4-702.jdbc3'
-        provided "org.springframework.boot:spring-boot-starter-tomcat"
+        runtime 'org.postgresql:postgresql:9.4-1205-jdbc41'
     }
 
     plugins {
