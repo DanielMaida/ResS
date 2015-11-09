@@ -16,20 +16,36 @@ Given(~'^I am at the the edit profile page as a collector$'){ ->
     at EditCollectorPage
 }
 
-When(~'^Fill the username field with "([^"]*)"$'){ String username ->
-    page.fillUsername(username)
+When(~'^Fill the collectors username field with "([^"]*)"$'){ String username ->
+    page.fillCollectorUsername(username)
 }
 
-And(~'^the password field with "([^"]*)"$'){String password ->
-    page.fillPassword(password)
+And(~'^the collectors password field with "([^"]*)"$'){String password ->
+    page.fillCollectorPassword(password)
 }
 
-And(~'^the email field with "([^"]*)"$'){String email ->
-    page.fillEmail(email)
+And(~'^the collectors email field with "([^"]*)"$'){String email ->
+    page.fillCollectorEmail(email)
 }
 
-And(~'^I confirm the edition$'){->
-    page.confirmEdition()
+And(~'^I confirm the collectors edition$'){->
+    page.confirmCollectorEdition()
+}
+
+When(~'^Fill the generators username field with "([^"]*)"$'){ String username ->
+    page.fillGeneratorUsername(username)
+}
+
+And(~'^the generators password field with "([^"]*)"$'){String password ->
+    page.fillGeneratorPassword(password)
+}
+
+And(~'^the generators email field with "([^"]*)"$'){String email ->
+    page.fillGeneratorEmail(email)
+}
+
+And(~'^I confirm the generators edition$'){->
+    page.confirmGeneratorEdition()
 }
 
 Then(~'^I see at the account settings page my new generator settings$'){->
