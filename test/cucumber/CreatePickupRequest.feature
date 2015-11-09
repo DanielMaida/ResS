@@ -3,7 +3,6 @@ Feature: Create pickup request
   I want to create a pickup request
   So that the residue collectors can receive a notification to do the collection.
 
-  @ignore
   Scenario: Pickup request success.
     Given there is no open pickup request for the residue generator with the username "testdummy"
     When  I make a pickup request for my "50" liters residue container
@@ -11,11 +10,10 @@ Feature: Create pickup request
     And   the collector should be warned by email
 
 
-  @ignore
   Scenario: Pickup request fail
-    Given there is no open pickup request for the residue generator with the id "42"
-    When  I try to make a pickup request without the amount of residue value
-    Then  the system shouldn't store the pickup request
+    Given there is no open pickup request for the residue generator with the username "testdummy2"
+    When  I try to make a pickup request with the residue amount equals to "0"
+    Then  the system should not store the pickup request
 
   @ignore
   Scenario: Pickup request success interface

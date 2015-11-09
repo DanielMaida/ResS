@@ -15,25 +15,38 @@ import mail.MailService
 class ResidueGeneratorTestAuxilar {
     static generators =
             [
-               [
-                       username:"testdummy",
-                       password:"testpass",
-                       address: new Address(
-                               street:"Elm street",
-                               streetNumber: "13",
-                               neighborhood: "Devil's pit",
-                               city: "Charming",
-                               state: "Arkansas",
-                               cep: '65520020'
-                       ), name:"Freddy",
-                       email: "freddy@gmail.com"
-               ]
+                    [
+                            username:"testdummy",
+                            password:"testpass",
+                            address: new Address(
+                                    street:"Elm street",
+                                    streetNumber: "13",
+                                    neighborhood: "Devil's pit",
+                                    city: "Charming",
+                                    state: "Arkansas",
+                                    cep: '65520020'
+                            ), name:"Freddy",
+                            email: "freddy@gmail.com"
+                    ],
+                    [
+                            username:"testdummy2",
+                            password:"testpass2",
+                            address: new Address(
+                                    street:"Elm street",
+                                    streetNumber: "13",
+                                    neighborhood: "Devil's pit",
+                                    city: "Charming",
+                                    state: "Arkansas",
+                                    cep: '65520020'
+                            ), name:"Vlad",
+                            email: "vlad2@gmail.com"
+                    ]
             ]
 
     public static def injectGenerator(String username)
     {
         User generator = findGenerator(username);
-        generator.save();
+        generator.save(flush:true);
     }
 
     public static def injectCollector()
@@ -53,7 +66,7 @@ class ResidueGeneratorTestAuxilar {
                         email: "dimmy@gmail.com"
                 );
 
-        collector.save();
+        collector.save(flush:true);
 
     }
 
@@ -69,19 +82,27 @@ class ResidueGeneratorTestAuxilar {
 
     public static def findPickupByUsername(String username)
     {
-        User generator = findGenerator(username);
-        return PickupRequest.findByGeneratorAndStatus(generator, false);
+        User generator = User.findByUsername(username);
+        PickupRequest pickup = PickupRequest.findByGeneratorAndStatus(generator, false);
+        if(pickup == null)
+        {
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 
     public static def createPickup(double residueAmount, String username)
     {
         PickupRequest pickup = new PickupRequest
                 (
-                    date : new Date(),
-                    residueAmount: residueAmount,
-                    generator: findGenerator(username),
-                    collector: User.findByUsername("testcoldummy"),
-                    status: false
+                        id: 42,
+                        date : new Date(),
+                        residueAmount: residueAmount,
+                        generator: User.findByUsername(username),
+                        collector: User.findByUsername("testcoldummy"),
+                        status: false
                 )
         pickup.save()
     }
