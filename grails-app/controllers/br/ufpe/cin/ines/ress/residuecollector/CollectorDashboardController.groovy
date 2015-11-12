@@ -24,8 +24,7 @@ class CollectorDashboardController {
     def collectionHistory(Integer max)
     {
         params.max = Math.min(max ?: 2, 100)
-        def closedPickups = PickupRequest.findAllByStatus(true)
-
+        def closedPickups = PickupRequest.findAllByStatus(true).sort{it.generator.name}
         render (view:'collectionHistory', model:[closedPickups : closedPickups])
     }
 
@@ -46,8 +45,6 @@ class CollectorDashboardController {
         pickup.save()
         redirect(action: 'index')
     }
-
-
 
     def accountConfig(){
         User user = (User) springSecurityService.currentUser

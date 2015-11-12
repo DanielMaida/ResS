@@ -12,7 +12,7 @@ Feature: Login Authentication
 
 
   #testes não estão funcionando por incompatibilidade do spring security com o grails
-@ignore
+
   Scenario: Log in as a generator
     Given I am at the HomePage
     When I go to the login page

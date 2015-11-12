@@ -15,12 +15,12 @@
         <table>
             <thead>
             <tr>
+                <th>Nome</th>
                 <th>Data</th>
                 <th>Quantidade</th>
-                <th>Ponto</th>
-
             </tr>
             </thead>
+
             <tbody>
             <g:if test="${closedPickups.size() == 0}" >
                 <tr>
@@ -30,15 +30,12 @@
             <g:else>
                 <g:each var="pickup" in="${closedPickups}">
                     <tr>
-                        <td>
-                            ${pickup.date.dateTimeString}
-                        </td>
-                        <td>
-                            ${pickup.residueAmount + " litros"}
-                        </td>
-                        <td>
-                            ${pickup.generator.name}
-                        </td>
+
+                        <td>${pickup.generator.name}</td>
+
+                        <td>${pickup.date.dateTimeString}</td>
+
+                        <td>${pickup.residueAmount} litros</td>
 
                     </tr>
                 </g:each>
