@@ -14,7 +14,7 @@ class PickupRequest {
     static constraints = {
         id unique:true, blank:false , nullable: false
         date blank:false , nullable: false
-        residueAmount blank:false , nullable: false
+        residueAmount blank:false , nullable: false, min: Double.parseDouble("1")
         collector blank:false , nullable: false
         status blank:false , nullable: false
     }

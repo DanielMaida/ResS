@@ -15,64 +15,77 @@ import mail.MailService
 class ResidueGeneratorTestAuxilar {
     static generators =
             [
-               [
-                       username:"testdummy",
-                       password:"testpass",
-                       address: new Address(
-                               street:"Elm street",
-                               streetNumber: "13",
-                               neighborhood: "Devil's pit",
-                               city: "Charming",
-                               state: "Arkansas",
-                               cep: '65520020'
-                       ), name:"Freddy",
-                       email: "freddy@gmail.com"
-               ],
-               [
-                       username:"ru",
-                       password:"testpass",
-                       address: new Address(
-                               street:"Elm street",
-                               streetNumber: "13",
-                               neighborhood: "Devil's pit",
-                               city: "Charming",
-                               state: "Arkansas",
-                               cep: '65520020'
-                       ), name:"Freddy",
-                       email: "freddy@gmail.com"
-               ]
+
+                    [
+                            username: "testdummy",
+                            password: "testpass",
+                            address : new Address(
+                                    street: "Elm street",
+                                    streetNumber: "13",
+                                    neighborhood: "Devil's pit",
+                                    city: "Charming",
+                                    state: "Arkansas",
+                                    cep: '65520020'
+                            ), name : "Freddy",
+                            email   : "freddy@gmail.com"
+                    ],
+                    [
+                            username: "testdummy2",
+                            password: "testpass2",
+                            address : new Address(
+                                    street: "Elm street",
+                                    streetNumber: "13",
+                                    neighborhood: "Devil's pit",
+                                    city: "Charming",
+                                    state: "Arkansas",
+                                    cep: '65520020'
+                            ), name : "Vlad",
+                            email   : "vlad2@gmail.com"
+                    ],
+
+                    [
+                            username: "ru",
+                            password: "testpass",
+                            address : new Address(
+                                    street: "Elm street",
+                                    streetNumber: "13",
+                                    neighborhood: "Devil's pit",
+                                    city: "Charming",
+                                    state: "Arkansas",
+                                    cep: '65520020'
+                            ), name : "Freddy",
+                            email   : "freddy@gmail.com"
+                    ]
+
             ]
 
-    public static def injectGenerator(String username)
-    {
+    public static def injectGenerator(String username) {
         User generator = findGenerator(username);
-        generator.save();
+        generator.save(flush: true);
     }
 
-    public static def injectCollector()
-    {
+    public static def injectCollector() {
         User collector = new User
                 (
-                        username:"testcoldummy",
-                        password:"testcolpass",
+                        username: "testcoldummy",
+                        password: "testcolpass",
                         address: new Address(
-                                street:"Elm street",
+                                street: "Elm street",
                                 streetNumber: "13",
                                 neighborhood: "Devil's pit",
                                 city: "Charming",
                                 state: "Arkansas",
                                 cep: '65520020'
-                        ), name:"Dimmy",
+                        ), name: "Dimmy",
                         email: "dimmy@gmail.com"
                 );
 
-        collector.save();
+        collector.save(flush: true);
 
     }
 
 
-    public static def findGenerator(String username)
-    {
+    public static def findGenerator(String username) {
         User generator = generators.find
                 {
                     generator -> generator.username == username
@@ -80,47 +93,50 @@ class ResidueGeneratorTestAuxilar {
         return generator;
     }
 
-    public static def findPickupByUsername(String username)
-    {
-        User generator = findGenerator(username);
-        return PickupRequest.findByGeneratorAndStatus(generator, false);
+    public static def findPickupByUsername(String username) {
+        User generator = User.findByUsername(username);
+        PickupRequest pickup = PickupRequest.findByGeneratorAndStatus(generator, false);
+        if (pickup == null) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
-    public static def createPickup(double residueAmount, String username)
-    {
+    public static def createPickup(double residueAmount, String username) {
         PickupRequest pickup = new PickupRequest
                 (
-                    date : new Date(),
-                    residueAmount: residueAmount,
-                    generator: findGenerator(username),
-                    collector: User.findByUsername("testcoldummy"),
-                    status: false
+                        id: 42,
+                        date: new Date(),
+                        residueAmount: residueAmount,
+                        generator: User.findByUsername(username),
+                        collector: User.findByUsername("testcoldummy"),
+                        status: false
                 )
         pickup.save()
     }
 
-    public static def updateUsername(String username, String oldUsername){
-            if(User.findByUsername(username) == null){
-                User user = User.findByUsername(oldUsername)
-                user.username = username
-                user.save()
-            }
-    }
-
-    public static def updatePassword(String password, String newUsername){
-            User user = User.findByUsername(newUsername)
-            user.password = password
+    public static def updateUsername(String username, String oldUsername) {
+        if (User.findByUsername(username) == null) {
+            User user = User.findByUsername(oldUsername)
+            user.username = username
             user.save()
+        }
     }
 
-    public static def updateEmail(String email, String newUsername){
-            User user = User.findByUsername(newUsername)
-            user.email = email
-            user.save()
+    public static def updatePassword(String password, String newUsername) {
+        User user = User.findByUsername(newUsername)
+        user.password = password
+        user.save()
     }
 
-    public static def sendEmail(String name, double residueAmount)
-    {
+    public static def updateEmail(String email, String newUsername) {
+        User user = User.findByUsername(newUsername)
+        user.email = email
+        user.save()
+    }
+
+    public static def sendEmail(String name, double residueAmount) {
         return MailService.sendEmail("dfm2@cin.ufpe.br", name, new Date(), residueAmount)
     }
 
