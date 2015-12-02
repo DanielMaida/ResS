@@ -3,10 +3,10 @@ package br.ufpe.cin.ines.ress.residuecollector
 import br.ufpe.cin.ines.ress.PickupRequest
 import br.ufpe.cin.ines.ress.Role
 import br.ufpe.cin.ines.ress.User
-import br.ufpe.cin.ines.ress.UserRole
 import grails.plugins.springsecurity.Secured
-import org.springframework.security.core.Authentication
-import org.springframework.security.core.context.SecurityContextHolder
+import org.grails.plugins.csv.CSVWriter
+
+//import pl.touk.excel.export.WebXlsxExporter
 
 import static br.ufpe.cin.ines.ress.User.*
 
@@ -25,7 +25,44 @@ class CollectorDashboardController {
     {
         params.max = Math.min(max ?: 2, 100)
         def closedPickups = PickupRequest.findAllByStatus(true).sort{it.generator.name}
+
         render (view:'collectionHistory', model:[closedPickups : closedPickups])
+    }
+
+    def downloadExcelHistory(){
+        def data = buildReport()
+        response.setHeader("Content-disposition", "attachment; filename=" +
+                "HistoricoColetas" + ".csv")
+        def out = response.outputStream
+        out << data
+        out.flush()
+        render {contentType: "text/csv"}
+    }
+
+    def buildReport(){
+        def closedPickups = PickupRequest.findAllByStatus(true).sort{it.generator.name}
+        def claims = closedPickups
+        def report = []
+
+        report[0] = "Nome"
+        report[1] = "Data"
+        report[2] = "Quantidade"
+        report[3] = "\n"
+
+        def i = 4;
+
+        claims.each {
+            report[i] = it.generator.name
+            i++
+            report[i] = it.date.toString()
+            i++
+            report[i] = it.residueAmount
+            i++
+            report[i] = "\n"
+            i++
+        }
+
+        return report
     }
 
     def generatorList()
@@ -34,7 +71,6 @@ class CollectorDashboardController {
         generators.removeAll {
             !it.getAuthorities().contains(Role.findByAuthority('ROLE_GENERATOR'))
         }
-
         render (view: 'generatorList', model: [userList: generators])
     }
 

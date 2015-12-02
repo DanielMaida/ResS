@@ -39,9 +39,13 @@
 
                     </tr>
                 </g:each>
+
             </g:else>
             </tbody>
         </table>
+        <button class="btn btn-first">
+            <g:link controller="collectorDashboard" action="downloadExcelHistory">Download Excel</g:link>
+        </button>
     </div>
 </div>
 </body>

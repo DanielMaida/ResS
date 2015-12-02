@@ -1,5 +1,4 @@
-
-
+import br.ufpe.cin.ines.ress.User
 import org.junit.*
 import grails.test.mixin.*
 

@@ -52,6 +52,9 @@ grails.project.dependency.resolution = {
         test "org.seleniumhq.selenium:selenium-chrome-driver:2.39.0"
         compile "org.grails.plugins:heroku:1.0.1"
         runtime 'org.postgresql:postgresql:9.4-1205-jdbc41'
+//        compile "org.grails.plugins:excel-export:0.2.1"
+        //compile "pl.touk:excel-export:2.0.1"
+        compile "org.grails.plugins:csv:0.3.1"
     }
 
     plugins {
