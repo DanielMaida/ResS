@@ -6,6 +6,12 @@
     <meta name="layout" content="collectorLayout">
     <title></title>
     <link rel="stylesheet" type="text/css" href="../css/table-data.css">
+    <style type="text/css">
+        button{
+            margin-top: 15px;
+            margin-left: 10px;
+        }
+    </style>
 </head>
 
 <body>
