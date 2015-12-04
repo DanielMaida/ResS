@@ -116,6 +116,29 @@ class ResidueGeneratorTestAuxilar {
         pickup.save()
     }
 
+    public static def confirmPickups(){
+        def pickups = PickupRequest.findAllByStatus(false)
+        int i = 0
+        pickups.each {
+            pickups[i].status = true
+            pickups[i].save()
+            i++
+        }
+
+    }
+
+    public static def buildCSV(){
+        String csv;
+        csv = "Nome,Data,Quantidade\n"
+        def pickups = PickupRequest.findAllByStatus(true).sort{it.generator.name}
+        pickups.each {
+            csv += it.collector.name + ","
+            csv += it.date.toString() + ","
+            csv += it.residueAmount + "\n"
+        }
+        return csv
+    }
+
     public static def updateUsername(String username, String oldUsername) {
         if (User.findByUsername(username) == null) {
             User user = User.findByUsername(oldUsername)
