@@ -49,9 +49,11 @@
             </g:else>
             </tbody>
         </table>
+        <g:if test="${closedPickups.size() > 0}" >
         <button class="btn btn-first">
             <g:link controller="collectorDashboard" action="downloadExcelHistory">Download Excel</g:link>
         </button>
+        </g:if>
     </div>
 </div>
 </body>

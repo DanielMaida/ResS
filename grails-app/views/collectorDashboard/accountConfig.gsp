@@ -17,6 +17,11 @@
         {
             width: 16% !important;
         }
+
+        button{
+            margin-top: 15px;
+            margin-left: 10px;
+        }
     </style>
 
 </head>
@@ -53,7 +58,7 @@
         </tr>
        </tbody>
    </table>
-        <g:link controller="collectorDashboard" action="editAccountConfig" class="button"> Editar </g:link>
+        <g:link controller="collectorDashboard" action="editAccountConfig"> <button class="btn btn-first"> Editar </button> </g:link>
 </div>
 </body>
 </html>

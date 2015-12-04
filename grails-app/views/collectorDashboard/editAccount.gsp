@@ -13,7 +13,6 @@
     <link rel="stylesheet" type="text/css" href="../css/table-data.css">
     <link rel="stylesheet" type="text/css" href="../css/generatorDashboard/button.css"/>
     <style type="text/css">
-
     </style>
 </head>
 
@@ -39,8 +38,8 @@
             </div>
 
             <div>
-                <input type="submit" class="button" value="Confirmar"/>
-                <g:link controller="collectorDashboard" action="accountConfig" class="button"> Cancelar </g:link>
+                <input type="submit" class="btn btn-first" value="Confirmar"/>
+                <g:link controller="collectorDashboard" action="accountConfig"> <button class="btn btn-first"> Cancelar </button> </g:link>
             </div>
         </fieldset>
     </g:form>

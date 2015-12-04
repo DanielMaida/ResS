@@ -31,11 +31,10 @@ class CollectorDashboardController {
 
     def downloadExcelHistory(){
         def data = buildReport()
-        int j = 0;
         response.setHeader("Content-disposition", "attachment; filename=" +
                 "HistoricoColetas" + ".csv")
         def out = response.outputStream
-        out << data.toString()
+        out << data
         out.flush()
         render {contentType: "text/csv"}
     }
@@ -43,28 +42,17 @@ class CollectorDashboardController {
     def buildReport(){
         def closedPickups = PickupRequest.findAllByStatus(true).sort{it.generator.name}
         def claims = closedPickups
-        def report = [];
+        String csv = "";
 
-        report[0] = " "
-        report[1] = "Nome"
-        report[2] = "Data"
-        report[3] = "Quantidade"
-        report[4] = "\n"
-
-        def i = 5;
+        csv = "Nome,Data,Quantidade\n"
 
         claims.each {
-            report[i] = it.generator.name
-            i++
-            report[i] = it.date.toString()
-            i++
-            report[i] = it.residueAmount
-            i++
-            report[i] = "\n"
-            i++
+            csv += it.generator.name + ","
+            csv += it.date.toString() + ","
+            csv += it.residueAmount + "\n"
         }
 
-        return report
+        return csv
     }
 
     def generatorList()
