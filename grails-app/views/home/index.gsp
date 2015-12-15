@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>ResS - Gerenciamento de residuos</title>
+    <title>Coopere UFPE</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/homepage/bootstrap.min.css" rel="stylesheet">
@@ -63,7 +63,7 @@
 <header class="header-image">
     <div class="headline" >
         <div class="container">
-            <h1>Gerenciamento de resíduos</h1>
+            <h1>Coopere UFPE</h1>
         </div>
     </div>
 </header>
@@ -75,33 +75,22 @@
 
     <!-- First Featurette -->
     <div class="featurette" id="about">
-        <img class="featurette-image img-circle img-responsive pull-right" src="${resource(dir: 'images', file: 'ecoponto.jpg')}">
+        <img class="featurette-image img-circle img-responsive pull-right" src="${resource(dir: 'images', file: 'onde_jogar.jpg')}">
         <h2 class="featurette-heading">Reciclagem é a
             <span class="text-muted">solução</span>
         </h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        <p class="lead">Atitudes corretas para um mundo melhor.</p>
     </div>
 
     <hr class="featurette-divider">
 
     <!-- Second Featurette -->
     <div class="featurette" id="services">
-        <img class="featurette-image img-circle img-responsive pull-left" src="${resource(dir: 'images', file: 'oil-barrels.jpg')}">
+        <img class="featurette-image img-circle img-responsive pull-left" src="${resource(dir: 'images', file: 'reciclagem.jpg')}">
         <h2 class="featurette-heading">Natureza
             <span class="text-muted">sustentável.</span>
         </h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-    </div>
-
-    <hr class="featurette-divider">
-
-    <!-- Third Featurette -->
-    <div class="featurette" id="contact">
-        <img class="featurette-image img-circle img-responsive pull-right" src="${resource(dir: 'images', file: 'tubos-ensaio.jpg')}">
-        <h2 class="featurette-heading">Combustíveis
-            <span class="text-muted">Renováveis</span>
-        </h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        <p class="lead">Coopere UFPE é um Sistema de Gerenciamento de Coleta de Óleo de Fritura nas cantinas e restaurantes da UFPE, onde o óleo coletado será destinado para reciclagem.</p>
     </div>
 
     <hr class="featurette-divider">
