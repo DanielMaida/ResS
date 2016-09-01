@@ -61,7 +61,7 @@ class ResidueGeneratorTestAuxilar {
 
     public static def injectGenerator(String username) {
         User generator = findGenerator(username);
-        generator.save(flush: true);
+        generator.save(flush:true);
     }
 
     public static def injectCollector() {
@@ -80,7 +80,7 @@ class ResidueGeneratorTestAuxilar {
                         email: "dimmy@gmail.com"
                 );
 
-        collector.save(flush: true);
+        collector.save(flush:true);
 
     }
 
@@ -93,25 +93,21 @@ class ResidueGeneratorTestAuxilar {
         return generator;
     }
 
-    public static def findPickupByUsername(String username) {
+    public static def findPickupByUsername(String username)
+    {
         User generator = User.findByUsername(username);
-        PickupRequest pickup = PickupRequest.findByGeneratorAndStatus(generator, false);
-        if (pickup == null) {
-            return false;
-        } else {
-            return true;
-        }
+        return PickupRequest.findByGeneratorAndStatus(generator, false);
     }
 
     public static def createPickup(double residueAmount, String username) {
         PickupRequest pickup = new PickupRequest
                 (
-                        id: 42,
-                        date: new Date(),
-                        residueAmount: residueAmount,
-                        generator: User.findByUsername(username),
-                        collector: User.findByUsername("testcoldummy"),
-                        status: false
+                    id: 42,
+                    date : new Date(),
+                    residueAmount: residueAmount,
+                    generator: User.findByUsername(username),
+                    collector: User.findByUsername("testcoldummy"),
+                    status: false
                 )
         pickup.save()
     }

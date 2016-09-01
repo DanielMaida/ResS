@@ -3,6 +3,7 @@ Feature: Create pickup request
   I want to create a pickup request
   So that the residue collectors can receive a notification to do the collection.
 
+
   Scenario: Pickup request success.
     Given there is no open pickup request for the residue generator with the username "testdummy"
     When  I make a pickup request for my "50" liters residue container
